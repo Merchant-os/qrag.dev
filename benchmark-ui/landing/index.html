@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Q# RAG Benchmark - Comparing RAG vs Baseline performance for quantum code generation with real build and test metrics">
+    <title>Q# RAG Benchmark - Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <div class="gradient-blur blur-1"></div>
+    <div class="gradient-blur blur-2"></div>
+    <div class="gradient-blur blur-3"></div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-brand">
+                <span class="font-display">Q# RAG Benchmark</span>
+            </div>
+            <div class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#rag-vs-baseline">RAG vs Baseline</a>
+                <a href="#metrics">Metrics</a>
+                <a href="#setup">Setup</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero" id="overview">
+            <div class="hero-badge">
+                <span>Experimental</span>
+            </div>
+            <h1 class="hero-title">
+                Retrieval-Augmented Generation for
+                <span class="text-gradient">Quantum Code</span>
+            </h1>
+            <p class="hero-subtitle">
+                A comprehensive benchmark system comparing RAG-enhanced AI code generation against baseline approaches,
+                using actual Q# compilation and xUnit test results for accurate performance measurement.
+            </p>
+            <div class="hero-metrics">
+                <div class="metric-card">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Key Metrics</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">2</div>
+                    <div class="metric-label">Approaches Compared</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">Real</div>
+                    <div class="metric-label">Build & Test</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- RAG vs Baseline Section -->
+        <section class="section" id="rag-vs-baseline">
+            <div class="section-header">
+                <h2 class="section-title">RAG vs Baseline</h2>
+                <p class="section-subtitle">Understanding the two approaches</p>
+            </div>
+
+            <div class="comparison-grid">
+                <article class="comparison-card baseline">
+                    <div class="comparison-header">
+                        <div class="comparison-icon baseline-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="comparison-title">Baseline Agent</h3>
+                    </div>
+                    <div class="comparison-content">
+                        <p class="comparison-description">
+                            A pure generation approach that relies solely on the model's internal knowledge
+                            without any external context or examples.
+                        </p>
+                        <ul class="comparison-features">
+                            <li>No retrieval of similar examples</li>
+                            <li>Only uses system prompt context</li>
+                            <li>Faster response time</li>
+                            <li>Good for simple tasks</li>
+                        </ul>
+                        <div class="comparison-tag">No Context</div>
+                    </div>
+                </article>
+
+                <article class="comparison-card rag">
+                    <div class="comparison-header">
+                        <div class="comparison-icon rag-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3 class="comparison-title">RAG Agent</h3>
+                    </div>
+                    <div class="comparison-content">
+                        <p class="comparison-description">
+                            A retrieval-augmented approach that finds and includes relevant Q# examples
+                            from a curated corpus before generating code.
+                        </p>
+                        <ul class="comparison-features">
+                            <li>Semantic search for similar examples</li>
+                            <li>Includes top-k examples in context</li>
+                            <li>Uses OpenAI embeddings (text-embedding-3-small)</li>
+                            <li>Better for complex quantum algorithms</li>
+                        </ul>
+                        <div class="comparison-tag">Context-Aware</div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="flow-diagram">
+                <h3 class="flow-title">How RAG Works</h3>
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Query</h4>
+                            <p>User requests quantum code generation task</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Retrieve</h4>
+                            <p>Semantic search finds similar Q# examples from corpus</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Augment</h4>
+                            <p>Include examples in system prompt</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Generate</h4>
+                            <p>AI generates code with relevant context</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metrics Section -->
+        <section class="section" id="metrics">
+            <div class="section-header">
+                <h2 class="section-title">How Metrics Are Measured</h2>
+                <p class="section-subtitle">Real compilation and test execution</p>
+            </div>
+
+            <div class="metrics-intro">
+                <p class="metrics-description">
+                    Unlike synthetic benchmarks that estimate correctness, this system actually builds generated Q# code
+                    and runs xUnit tests to verify functional correctness. Each metric reflects real execution results.
+                </p>
+            </div>
+
+            <div class="metrics-grid">
+                <article class="metric-detail">
+                    <div class="metric-detail-icon pass1">
+                        <span>pass@1</span>
+                    </div>
+                    <h3 class="metric-detail-title">Pass @ 1</h3>
+                    <p class="metric-detail-description">
+                        The percentage of tasks where the <strong>first</strong> generated code sample
+                        passes all xUnit tests. This measures reliability of single-shot generation.
+                    </p>
+                    <div class="metric-detail-formula">
+                        <code>Tasks with passing first code / Total tasks</code>
+                    </div>
+                    <div class="metric-detail-significance">
+                        <strong>Why it matters:</strong> In production scenarios, developers typically use
+                        the first suggestion without regenerating. High pass@1 means the AI is consistently accurate.
+                    </div>
+                </article>
+
+                <article class="metric-detail">
+                    <div class="metric-detail-icon pass3">
+                        <span>pass@3</span>
+                    </div>
+                    <h3 class="metric-detail-title">Pass @ 3</h3>
+                    <p class="metric-detail-description">
+                        The percentage of tasks where <strong>any</strong> of the 3 generated code samples
+                        passes all xUnit tests. This measures generation quality with multiple attempts.
+                    </p>
+                    <div class="metric-detail-formula">
+                        <code>Tasks with ≥1 passing code / Total tasks</code>
+                    </div>
+                    <div class="metric-detail-significance">
+                        <strong>Why it matters:</strong> Shows the AI's capability range and how often
+                        it can produce correct code given multiple attempts. Useful when regenerating is acceptable.
+                    </div>
+                </article>
+
+                <article class="metric-detail">
+                    <div class="metric-detail-icon compile">
+                        <span>compile@1</span>
+                    </div>
+                    <h3 class="metric-detail-title">Compile @ 1</h3>
+                    <p class="metric-detail-description">
+                        The percentage of tasks where the <strong>first</strong> generated code sample
+                        successfully compiles (even if tests fail). This measures syntactic correctness.
+                    </p>
+                    <div class="metric-detail-formula">
+                        <code>Tasks with compilable first code / Total tasks</code>
+                    </div>
+                    <div class="metric-detail-significance">
+                        <strong>Why it matters:</strong> Compilation is a basic requirement. High compile@1
+                        but low pass@1 indicates the AI generates syntactically valid code with logical errors.
+                    </div>
+                </article>
+            </div>
+
+            <div class="measurement-process">
+                <h3 class="process-title">Measurement Process</h3>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                        </div>
+                        <h4>1. Generate Code</h4>
+                        <p>AI generates Q# code for each benchmark task (3 attempts per task)</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h4>2. Build Project</h4>
+                        <p>Generated code is added to Q# project and compiled using .NET SDK</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                        </div>
+                        <h4>3. Run Tests</h4>
+                        <p>xUnit tests execute to verify correctness of generated quantum operations</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="20" x2="18" y2="10"/>
+                                <line x1="12" y1="20" x2="12" y2="4"/>
+                                <line x1="6" y1="20" x2="6" y2="14"/>
+                            </svg>
+                        </div>
+                        <h4>4. Calculate Metrics</h4>
+                        <p>Results aggregated into pass@1, pass@3, and compile@1 scores</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Corpus Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Knowledge Corpus</h2>
+                <p class="section-subtitle">Where the examples come from</p>
+            </div>
+
+            <div class="corpus-content">
+                <div class="corpus-text">
+                    <p class="corpus-paragraph">
+                        The RAG system uses a curated corpus of <strong>40-70 high-quality Q# examples</strong>
+                        scraped from Microsoft's Quantum Development Kit (QDK) repository. These examples are
+                        indexed using OpenAI's <code>text-embedding-3-small</code> model for semantic search.
+                    </p>
+                    <p class="corpus-paragraph">
+                        The corpus includes:
+                    </p>
+                    <ul class="corpus-list">
+                        <li>Basic quantum operations (gates, measurements, superposition)</li>
+                        <li>Quantum algorithms (Grover's search, phase estimation, etc.)</li>
+                        <li>Error correction schemes</li>
+                        <li>Quantum teleportation protocols</li>
+                        <li>GHZ and Bell state generation</li>
+                    </ul>
+                    <p class="corpus-paragraph">
+                        Examples are deduplicated and selected for quality, ensuring the RAG system retrieves
+                        relevant, working code patterns to aid generation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup Section -->
+        <section class="section" id="setup">
+            <div class="section-header">
+                <h2 class="section-title">Quick Start</h2>
+                <p class="section-subtitle">Get up and running</p>
+            </div>
+
+            <div class="setup-steps">
+                <div class="setup-step">
+                    <div class="setup-number">1</div>
+                    <div class="setup-content">
+                        <h4>Install Dependencies</h4>
+                        <div class="code-block">
+                            <code>pip install -r requirements.txt</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="setup-step">
+                    <div class="setup-number">2</div>
+                    <div class="setup-content">
+                        <h4>Set API Key</h4>
+                        <div class="code-block">
+                            <code>export OPENAI_API_KEY="your-key"</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="setup-step">
+                    <div class="setup-number">3</div>
+                    <div class="setup-content">
+                        <h4>Scrape Examples</h4>
+                        <div class="code-block">
+                            <code>python corpus/scrape_qdk.py</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="setup-step">
+                    <div class="setup-number">4</div>
+                    <div class="setup-content">
+                        <h4>Generate Embeddings</h4>
+                        <div class="code-block">
+                            <code>python rag/embed.py</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="setup-step">
+                    <div class="setup-number">5</div>
+                    <div class="setup-content">
+                        <h4>Run Benchmark</h4>
+                        <div class="code-block">
+                            <code>python benchmark/harness.py --limit 10 --attempts 3</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Tech Stack</h2>
+                <p class="section-subtitle">What powers the benchmark</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-name">OpenAI GPT-4o-mini</div>
+                    <div class="tech-role">Code Generation</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">OpenAI text-embedding-3-small</div>
+                    <div class="tech-role">Semantic Retrieval</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">QDK 0.28</div>
+                    <div class="tech-role">Quantum Compiler</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">.NET 6 SDK</div>
+                    <div class="tech-role">Build & Test</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">NumPy</div>
+                    <div class="tech-role">Vector Operations</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">xUnit</div>
+                    <div class="tech-role">Test Framework</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-text">
+                    Q# RAG Benchmark is an educational project for exploring RAG in quantum code generation.
+                    QDK examples from Microsoft's Quantum Development Kit.
+                </p>
+                <p class="footer-links">
+                    <a href="https://github.com/microsoft/qdk" target="_blank" rel="noopener">QDK Repository</a>
+                    <span>•</span>
+                    <a href="https://platform.openai.com/docs/guides/embeddings" target="_blank" rel="noopener">OpenAI Embeddings</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="landing.js"></script>
+</body>
+</html>

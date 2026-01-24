@@ -1,0 +1,19 @@
+model:
+  provider: openai
+  name: gpt-4o-mini
+  temperature: 0.0
+  max_tokens: 4096
+
+retrieval:
+  top_k_examples: 5
+  top_k_docs: 3
+
+embeddings:
+  model: text-embedding-3-small
+
+benchmark:
+  build_command: dotnet build
+  run_command: dotnet test
+  build_timeout_sec: 60
+  test_timeout_sec: 120
+  rerun_flaky: 3

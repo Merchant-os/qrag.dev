@@ -1,0 +1,59 @@
+/* Landing page - Titan.com inspired editorial design */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-serif: "Faculty Glyphic", "Playfair Display", "Times New Roman", serif;
+    --font-sans: "Zalando Sans", "Inter", "Helvetica Neue", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  /* Editorial serif font for headings */
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  /* Focus states - refined, not default blue */
+  :focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Smooth hover transitions for all interactive elements */
+  a, button {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Custom scrollbar for refined look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d4;
+}

@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+build/
+
+# Env files
+.env
+.env.*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.claude/
+
+# Project artifacts
+rag/*.npy
+rag/metadata.json
+benchmark/results/
+corpus/qdk-cache/
+*.deb

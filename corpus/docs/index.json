@@ -1,0 +1,26 @@
+[
+  {
+    "id": "qsharp-namespaces",
+    "title": "Q# namespaces and open directives",
+    "content": "Q# programs consist of namespace blocks. All callable and type declarations must be inside a namespace; there are no top-level declarations outside a namespace. Each file can contain multiple namespaces, but namespaces do not nest. Use open directives inside the namespace to access callables from other namespaces; either qualify names or open the namespace. Namespaces are not hierarchical even if they share a prefix.",
+    "source": "https://learn.microsoft.com/en-us/azure/quantum/user-guide/language/programstructure/namespaces"
+  },
+  {
+    "id": "qsharp-callables",
+    "title": "Callable declarations and functors",
+    "content": "Q# supports two callable kinds: operations (can have side effects) and functions (deterministic, no side effects). Operations can declare functor support with `is Adj + Ctl` and the compiler can generate adjoint/controlled specializations when valid. Functions have only a single body. Callables can be recursive and can be declared in any order within a namespace.",
+    "source": "https://learn.microsoft.com/en-us/azure/quantum/user-guide/language/programstructure/callabledeclarations"
+  },
+  {
+    "id": "qsharp-types",
+    "title": "Q# type system overview",
+    "content": "Q# has a small immutable type system: Unit, Int, BigInt, Double, Bool, String, Qubit, Result, Pauli, Range, arrays, tuples, and user-defined types. Arrays are homogeneous sequences. Tuples are fixed-size groupings of values. Operations and functions are first-class callable types with tuple-valued input and output. Prefer explicit type annotations in callable signatures.",
+    "source": "https://learn.microsoft.com/en-us/azure/quantum/user-guide/language/typesystem"
+  },
+  {
+    "id": "qsharp-expressions",
+    "title": "Q# expressions and modifiers",
+    "content": "Expressions are composed of literals, identifiers, operators, and callable invocations. Modifiers like functor application are prefix operators applied to callables. Item access expressions and tuple/array literals are common building blocks. Use operations for quantum effects and functions for pure computation.",
+    "source": "https://learn.microsoft.com/en-us/azure/quantum/user-guide/language/expressions"
+  }
+]

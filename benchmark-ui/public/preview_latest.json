@@ -1,0 +1,938 @@
+[
+  {
+    "id": "bell-state",
+    "description": "Create a Bell state between two qubits and measure both.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Diagnostics;\n\n    operation TaskBellState() : Unit {\n        use (q1, q2) = (Qubit(), Qubit());\n\n        // Create Bell state |\u03a6\u207a\u27e9 = (|00\u27e9 + |11\u27e9)/\u221a2\n        H(q1);\n        CNOT(q1, q2);\n\n        // Measure both qubits\n        let result1 = M(q1);\n        let result2 = M(q2);\n\n        // Output the measurement results\n        Message($\"Measurement results: {result1}, {result2}\");\n\n        // Reset qubits before releasing them\n        if result1 == One {\n            X(q1);\n        }\n        if result2 == One {\n            X(q2);\n        }\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n\n    operation TaskBellState() : Unit {\n        use qubits = Qubit[2];\n        \n        // Create a Bell state\n        H(qubits[0]);\n        CNOT(qubits[0], qubits[1]);\n        \n        // Measure both qubits\n        let results = [MResetZ(qubits[0]), MResetZ(qubits[1])];\n        \n        // Output the measurement results\n        Message($\"Measurement results: {results}\");\n    }\n}",
+    "rag_result": {
+      "id": "bell-state",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 27.0644268989563
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "bell-state",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 21.147677421569824
+        }
+      ]
+    }
+  },
+  {
+    "id": "superposition",
+    "description": "Prepare a single qubit in uniform superposition and measure.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n\n    operation TaskSuperposition() : Unit {\n        use q = Qubit();\n        H(q);\n        let result = MResetZ(q);\n        Message($\"Measured result: {result}\");\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n\n    operation TaskSuperposition() : Unit {\n        use q = Qubit();\n        H(q);\n        let result = MResetZ(q);\n        Message($\"Measured result: {result}\");\n    }\n}",
+    "rag_result": {
+      "id": "superposition",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 16.344350576400757
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "superposition",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 21.06752371788025
+        }
+      ]
+    }
+  },
+  {
+    "id": "random-bit",
+    "description": "Generate a random classical bit using a qubit measurement.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n\n    operation TaskRandomBit() : Unit {\n        use q = Qubit();\n        H(q);\n        let result = MResetZ(q);\n        Message($\"Random bit: {result}\");\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n\n    operation TaskRandomBit() : Unit {\n        use q = Qubit();\n        H(q);\n        let result = MResetZ(q);\n        Message($\"Random bit: {result}\");\n    }\n}",
+    "rag_result": {
+      "id": "random-bit",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 17.64934015274048
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "random-bit",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 22.098493814468384
+        }
+      ]
+    }
+  },
+  {
+    "id": "ghz-state",
+    "description": "Create a GHZ state across three qubits and return the results.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskGhzState() : Unit {\n        use qubits = Qubit[3];\n\n        // Prepare GHZ state\n        H(qubits[0]);\n        for i in 1..2 {\n            CNOT(qubits[0], qubits[i]);\n        }\n\n        // Measure and reset qubits\n        for q in qubits {\n            let _ = MResetZ(q);\n        }\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Diagnostics;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskGhzState() : Unit {\n        use qubits = Qubit[3];\n        \n        // Create GHZ state\n        H(qubits[0]);\n        CNOT(qubits[0], qubits[1]);\n        CNOT(qubits[1], qubits[2]);\n\n        // Measure the qubits and reset them\n        for (i in 0..2) {\n            let result = MResetZ(qubits[i]);\n            Message($\"Qubit {i}: {result}\");\n        }\n    }\n}",
+    "rag_result": {
+      "id": "ghz-state",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 17.796780824661255
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "ghz-state",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 20.375503063201904
+        }
+      ]
+    }
+  },
+  {
+    "id": "teleportation",
+    "description": "Show a simple quantum teleportation circuit.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Diagnostics;\n\n    operation TaskTeleportation() : Unit {\n        // Allocate qubits for Alice, Bob, and the qubit to teleport\n        use (qAlice, qBob, qToTeleport) = (Qubit(), Qubit(), Qubit());\n\n        // Entangle qAlice and qBob\n        H(qAlice);\n        CNOT(qAlice, qBob);\n\n        // Prepare the state to be teleported on qToTeleport\n        H(qToTeleport);\n\n        // Entangle qToTeleport with qAlice\n        CNOT(qToTeleport, qAlice);\n        H(qToTeleport);\n\n        // Measure qToTeleport and qAlice to get classical bits\n        let b1 = M(qToTeleport) == One;\n        let b2 = M(qAlice) == One;\n\n        // Apply corrections to qBob based on the classical bits\n        if b1 {\n            Z(qBob);\n        }\n        if b2 {\n            X(qBob);\n        }\n\n        // Reset all qubits before releasing\n        Reset(qAlice);\n        Reset(qBob);\n        Reset(qToTeleport);\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Diagnostics;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskTeleportation() : Unit {\n        use (q0, q1, q2) = (Qubit(), Qubit(), Qubit());\n\n        // Prepare an arbitrary state on q0\n        H(q0);\n        Rz(PI() / 4.0, q0);\n\n        // Create an entangled pair between q1 and q2\n        H(q1);\n        CNOT(q1, q2);\n\n        // Bell measurement on q0 and q1\n        CNOT(q0, q1);\n        H(q0);\n\n        // Measure q0 and q1\n        let m0 = MResetZ(q0);\n        let m1 = MResetZ(q1);\n\n        // Apply corrections on q2 based on the measurement results\n        if (m0 == One) {\n            Z(q2);\n        }\n        if (m1 == One) {\n            X(q2);\n        }\n\n        // Reset q2\n        MResetZ(q2);\n    }\n}",
+    "rag_result": {
+      "id": "teleportation",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 19.500664710998535
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "teleportation",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 22.650287628173828
+        }
+      ]
+    }
+  },
+  {
+    "id": "deutsch-jozsa",
+    "description": "Implement the Deutsch-Jozsa algorithm for a 2-qubit oracle.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskDeutschJozsa() : Unit {\n        // Define a 2-qubit oracle for the Deutsch-Jozsa algorithm\n        operation Oracle(args : Qubit[], target : Qubit) : Unit {\n            // Example of a balanced oracle: f(x) = x0 XOR x1\n            CNOT(args[0], target);\n            CNOT(args[1], target);\n        }\n\n        // Implement the Deutsch-Jozsa algorithm\n        use queryRegister = Qubit[2];\n        use target = Qubit();\n\n        // Prepare the target qubit in the |1\u27e9 state\n        X(target);\n        H(target);\n\n        // Apply Hadamard to the query register\n        for q in queryRegister {\n            H(q);\n        }\n\n        // Apply the oracle\n        Oracle(queryRegister, target);\n\n        // Apply Hadamard to the query register again\n        for q in queryRegister {\n            H(q);\n        }\n\n        // Measure the query register\n        mutable isConstant = true;\n        for q in queryRegister {\n            if MResetZ(q) == One {\n                set isConstant = false;\n            }\n        }\n\n        // Reset the target qubit\n        Reset(target);\n\n        // Output the result\n        if isConstant {\n            Message(\"The function is constant.\");\n        } else {\n            Message(\"The function is balanced.\");\n        }\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskDeutschJozsa() : Unit {\n        use qubits = Qubit[3];\n        \n        // Prepare the qubits\n        H(qubits[0]);\n        H(qubits[1]);\n        X(qubits[2]);\n        H(qubits[2]);\n\n        // Apply the oracle\n        ApplyOracle(qubits);\n\n        // Apply Hadamard to the first two qubits\n        H(qubits[0]);\n        H(qubits[1]);\n\n        // Measure the first two qubits\n        let results = [MResetZ(qubits[0]), MResetZ(qubits[1])];\n\n        // Reset the last qubit\n        MResetZ(qubits[2]);\n\n        // Determine if the function is constant or balanced\n        if (results == [Zero, Zero]) {\n            Message(\"The function is constant.\");\n        } else {\n            Message(\"The function is balanced.\");\n        }\n    }\n\n    operation ApplyOracle(qubits : Qubit[]) : Unit {\n        // Example oracle for a balanced function\n        CNOT(qubits[0], qubits[2]);\n        CNOT(qubits[1], qubits[2]);\n    }\n}",
+    "rag_result": {
+      "id": "deutsch-jozsa",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 32.463719844818115
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "deutsch-jozsa",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/deutsch_jozsa.qs(40,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/deutsch_jozsa.qs(43,13): error QS5007: The type Result[] does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 2 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/deutsch_jozsa.qs(40,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/deutsch_jozsa.qs(43,13): error QS5007: The type Result[] does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    4 Error(s)\n\nTime Elapsed 00:00:06.03",
+          "elapsed_sec": 12.382075786590576
+        }
+      ]
+    }
+  },
+  {
+    "id": "grover-4-items",
+    "description": "Implement Grover's search for 4 items.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskGrover4Items() : Unit {\n        let nQubits = 2;\n        let nIterations = 1; // Optimal for 4 items is 1 iteration\n\n        use qubits = Qubit[nQubits];\n\n        // Initialize a uniform superposition over all possible inputs.\n        PrepareUniform(qubits);\n\n        // Perform Grover iteration\n        for _ in 1..nIterations {\n            ReflectAboutMarked(qubits);\n            ReflectAboutUniform(qubits);\n        }\n\n        // Measure and reset qubits\n        for q in qubits {\n            let _ = MResetZ(q);\n        }\n    }\n\n    operation PrepareUniform(inputQubits : Qubit[]) : Unit is Adj + Ctl {\n        for q in inputQubits {\n            H(q);\n        }\n    }\n\n    operation ReflectAboutMarked(inputQubits : Qubit[]) : Unit {\n        // Example: Mark the state |11\u27e9\n        Controlled X(inputQubits[0..0], inputQubits[1]);\n        Z(inputQubits[1]);\n        Controlled X(inputQubits[0..0], inputQubits[1]);\n    }\n\n    operation ReflectAboutUniform(inputQubits : Qubit[]) : Unit {\n        within {\n            Adjoint PrepareUniform(inputQubits);\n            for q in inputQubits {\n                X(q);\n            }\n        } apply {\n            Controlled Z(Most(inputQubits), Tail(inputQubits));\n        }\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation Oracle(markedItem : Int, qubits : Qubit[]) : Unit is Adj + Ctl {\n        if (markedItem == 0) {\n            Z(qubits[0]);\n        } elif (markedItem == 1) {\n            CNOT(qubits[0], qubits[1]);\n            Z(qubits[1]);\n            CNOT(qubits[0], qubits[1]);\n        } elif (markedItem == 2) {\n            CNOT(qubits[0], qubits[1]);\n            CNOT(qubits[1], qubits[2]);\n            Z(qubits[2]);\n            CNOT(qubits[1], qubits[2]);\n            CNOT(qubits[0], qubits[1]);\n        } elif (markedItem == 3) {\n            CNOT(qubits[0], qubits[2]);\n            Z(qubits[2]);\n            CNOT(qubits[0], qubits[2]);\n        }\n    }\n\n    operation DiffusionOperator(qubits : Qubit[]) : Unit is Adj + Ctl {\n        H(qubits[0]);\n        H(qubits[1]);\n        H(qubits[2]);\n        X(qubits[0]);\n        X(qubits[1]);\n        X(qubits[2]);\n        H(qubits[2]);\n        CNOT(qubits[0], qubits[1]);\n        CNOT(qubits[1], qubits[2]);\n        Z(qubits[2]);\n        CNOT(qubits[1], qubits[2]);\n        CNOT(qubits[0], qubits[1]);\n        H(qubits[2]);\n        X(qubits[0]);\n        X(qubits[1]);\n        X(qubits[2]);\n        H(qubits[0]);\n        H(qubits[1]);\n        H(qubits[2]);\n    }\n\n    operation TaskGrover4Items() : Unit {\n        use qubits = Qubit[3];\n        let markedItem = 2; // Example: Marked item is 2\n\n        // Initialize qubits in superposition\n        H(qubits[0]);\n        H(qubits[1]);\n        H(qubits[2]);\n\n        // Apply Grover's algorithm\n        Oracle(markedItem, qubits);\n        DiffusionOperator(qubits);\n\n        // Measure the qubits\n        for (i in 0..2) {\n            let result = MResetZ(qubits[i]);\n        }\n    }\n}",
+    "rag_result": {
+      "id": "grover-4-items",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 30.380570888519287
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "grover-4-items",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 24.681732654571533
+        }
+      ]
+    }
+  },
+  {
+    "id": "phase-estimation",
+    "description": "Implement phase estimation for a single-qubit unitary.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskPhaseEstimation() : Unit {\n        // Allocate qubits for the phase estimation\n        use state = Qubit();\n        use phase = Qubit[3];\n\n        // Prepare the eigenvector |1\u27e9 for the unitary operation\n        X(state);\n\n        // Define the unitary operation U as a rotation around the Z axis\n        operation U(q : Qubit) : Unit is Ctl + Adj {\n            Rz(PI() / 4.0, q); // Example: Rz with angle \u03c0/4\n        }\n\n        // Define the oracle for the phase estimation\n        let oracle = ApplyOperationPowerCA(_, qs => U(qs[0]), _);\n\n        // Apply Quantum Phase Estimation\n        ApplyQPE(oracle, [state], phase);\n\n        // Measure each qubit in the phase register\n        for q in phase {\n            let _ = MResetZ(q);\n        }\n\n        // Reset the state qubit\n        Reset(state);\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskPhaseEstimation() : Unit {\n        // Define the unitary operation for which we want to estimate the phase\n        operation Unitary(qubit : Qubit) : Unit is Adj + Ctl {\n            Rz(2.0 * PI() / 8.0, qubit);\n        }\n\n        // Number of qubits for the phase estimation\n        let n = 3;\n\n        // Allocate qubits\n        use ancilla = Qubit[n];\n        use target = Qubit();\n\n        // Prepare the target qubit in the |1\u27e9 state\n        X(target);\n\n        // Apply Hadamard to all ancilla qubits\n        for i in 0 .. n - 1 {\n            H(ancilla[i]);\n        }\n\n        // Apply controlled unitary operations\n        for i in 0 .. n - 1 {\n            let power = 2 ^ i;\n            Controlled Rz(2.0 * PI() / 8.0 * IntAsDouble(power), (ancilla[i], target));\n        }\n\n        // Apply inverse Quantum Fourier Transform\n        Adjoint QFT(ancilla);\n\n        // Measure the ancilla qubits\n        for i in 0 .. n - 1 {\n            let result = MResetZ(ancilla[i]);\n            Message($\"Measurement result for qubit {i}: {result}\");\n        }\n\n        // Reset the target qubit\n        MResetZ(target);\n    }\n}",
+    "rag_result": {
+      "id": "phase-estimation",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(33,13): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 1 error, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(33,13): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    3 Error(s)\n\nTime Elapsed 00:00:05.27",
+          "elapsed_sec": 21.736281633377075
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "phase-estimation",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(10,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(15,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(30,9): error QS5022: No identifier with the name \"ControlledU\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 3 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(10,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(15,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(30,9): error QS5022: No identifier with the name \"ControlledU\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    5 Error(s)\n\nTime Elapsed 00:00:05.96",
+          "elapsed_sec": 11.851806640625
+        }
+      ]
+    }
+  },
+  {
+    "id": "qft",
+    "description": "Implement a Quantum Fourier Transform for 3 qubits.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Measurement;\n\n    operation TaskQft() : Unit {\n        use qubits = Qubit[3];\n        \n        // Apply the Quantum Fourier Transform\n        QFT(qubits);\n\n        // Measure and reset each qubit\n        for qubit in qubits {\n            let _ = MResetZ(qubit);\n        }\n    }\n\n    operation QFT(qubits : Qubit[]) : Unit {\n        let n = Length(qubits);\n        for i in 0..n-1 {\n            H(qubits[i]);\n            for j in i+1..n-1 {\n                let angle = PI() / IntAsDouble(1 <<< (j - i));\n                R1Frac(angle, qubits[j], qubits[i]);\n            }\n        }\n        // Reverse the order of qubits\n        for i in 0..n/2-1 {\n            SWAP(qubits[i], qubits[n-i-1]);\n        }\n    }\n\n    operation R1Frac(angle : Double, control : Qubit, target : Qubit) : Unit {\n        controlled Rz([control], angle, target);\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskQft() : Unit {\n        use qubits = Qubit[3];\n        \n        // Apply the Quantum Fourier Transform\n        QFT(qubits);\n\n        // Reset all qubits before releasing them\n        for (qubit in qubits) {\n            _ = MResetZ(qubit);\n        }\n    }\n\n    operation QFT(qubits : Qubit[]) : Unit {\n        let n = Length(qubits);\n        for (i in 0..n - 1) {\n            H(qubits[i]);\n            for (j in i + 1..n - 1) {\n                let angle = PI() / IntAsDouble(1 <<< (j - i));\n                R1Frac(2, j - i, qubits[j]);\n                CNOT(qubits[j], qubits[i]);\n                R1Frac(-2, j - i, qubits[j]);\n                CNOT(qubits[j], qubits[i]);\n            }\n        }\n        // Reverse the order of qubits\n        for (i in 0..n / 2 - 1) {\n            Swap(qubits[i], qubits[n - i - 1]);\n        }\n    }\n}",
+    "rag_result": {
+      "id": "qft",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(41,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 1 error, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(41,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    3 Error(s)\n\nTime Elapsed 00:00:05.14",
+          "elapsed_sec": 32.48005676269531
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "qft",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(15,36): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(24,9): error QS5022: No identifier with the name \"Swap\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 2 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(15,36): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(24,9): error QS5022: No identifier with the name \"Swap\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    4 Error(s)\n\nTime Elapsed 00:00:05.87",
+          "elapsed_sec": 11.802432537078857
+        }
+      ]
+    }
+  },
+  {
+    "id": "bernstein-vazirani",
+    "description": "Implement the Bernstein-Vazirani algorithm for a 3-bit secret.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskBernsteinVazirani() : Unit {\n        let secret = 5; // 3-bit secret, binary: 101\n        let nQubits = 3;\n\n        use queryRegister = Qubit[nQubits];\n        use target = Qubit();\n\n        // Prepare the target qubit in the |1\u27e9 state\n        X(target);\n\n        // Apply Hadamard to all qubits\n        ApplyToEach(H, queryRegister + [target]);\n\n        // Apply the oracle for the secret\n        ApplyParityOperation(secret, queryRegister, target);\n\n        // Apply Hadamard to the query register\n        ApplyToEach(H, queryRegister);\n\n        // Measure the query register\n        let resultArray = new Result[nQubits];\n        for i in 0..nQubits - 1 {\n            set resultArray w/= i <- MResetZ(queryRegister[i]);\n        }\n\n        // Reset the target qubit\n        Reset(target);\n\n        // Output the result\n        Message($\"Measured secret: {ResultArrayAsInt(resultArray)}\");\n    }\n\n    operation ApplyParityOperation(\n        bitStringAsInt : Int,\n        xRegister : Qubit[],\n        yQubit : Qubit\n    ) : Unit {\n        for index in IndexRange(xRegister) {\n            if ((bitStringAsInt &&& (1 <<< index)) != 0) {\n                CNOT(xRegister[index], yQubit);\n            }\n        }\n    }\n\n    function ResultArrayAsInt(results : Result[]) : Int {\n        mutable value = 0;\n        for i in 0..Length(results) - 1 {\n            if (results[i] == One) {\n                set value += 1 <<< i;\n            }\n        }\n        return value;\n    }\n}",
+    "baseline_output": "```qsharp\nnamespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskBernsteinVazirani() : Unit {\n        // Define the secret bit string as an integer\n        let secret = 5; // Binary: 101\n\n        use qubits = Qubit[4]; // 3 qubits for input, 1 qubit for output\n\n        // Prepare the output qubit in the |-\u27e9 state\n        X(qubits[3]);\n        H(qubits[3]);\n\n        // Apply Hadamard to all input qubits\n        for (i in 0..2) {\n            H(qubits[i]);\n        }\n\n        // Apply the oracle\n        for (i in 0..2) {\n            if ((secret && (1 <<< i)) != 0) {\n                CNOT(qubits[i], qubits[3]);\n            }\n        }\n\n        // Apply Hadamard to all input qubits again\n        for (i in 0..2) {\n            H(qubits[i]);\n        }\n\n        // Measure the input qubits to reveal the secret\n        for (i in 0..2) {\n            let result = MResetZ(qubits[i]);\n            Message($\"Bit {i}: {result}\");\n        }\n\n        // Reset the output qubit\n        MResetZ(qubits[3]);\n    }\n}\n```",
+    "rag_result": {
+      "id": "bernstein-vazirani",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 25.091742753982544
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "bernstein-vazirani",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(19,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(24,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,25): warning QS3302: Deprecated syntax. Use \"and\" to denote the logical AND operator. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(31,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(36,26): warning QS3308: Deprecated syntax. Use [] to construct an empty array, or [x, size = n] to construct an array of x repeated n times. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(37,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,18): error QS0001: Expected type Bool, but actual type was Int. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,29): error QS0001: Expected type Bool, but actual type was Int. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,13): error QS0002: The type Int doesn't share a supertype with type Bool. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  Expected: Bool (or a related type)\n    Actual: Int\n  \n  ____________________________________________\n  \n  Q# compilation failed: 4 errors, 6 warnings \n  \n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(42,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(19,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(24,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,25): warning QS3302: Deprecated syntax. Use \"and\" to denote the logical AND operator. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(31,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(36,26): warning QS3308: Deprecated syntax. Use [] to construct an empty array, or [x, size = n] to construct an array of x repeated n times. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(37,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,18): error QS0001: Expected type Bool, but actual type was Int. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,29): error QS0001: Expected type Bool, but actual type was Int. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,13): error QS0002: The type Int doesn't share a supertype with type Bool. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(42,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    6 Warning(s)\n    6 Error(s)\n\nTime Elapsed 00:00:06.24",
+          "elapsed_sec": 13.867279052734375
+        }
+      ]
+    }
+  },
+  {
+    "id": "swap-test",
+    "description": "Implement a swap test to compare two single-qubit states.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskSwapTest() : Unit {\n        use (q1, q2, ancilla) = (Qubit(), Qubit(), Qubit());\n\n        // Prepare the states to compare\n        // Example: Prepare q1 in |+\u27e9 state and q2 in |0\u27e9 state\n        H(q1);\n        // q2 is already in |0\u27e9 state\n\n        // Prepare the ancilla qubit in superposition\n        H(ancilla);\n\n        // Perform the controlled SWAP operation\n        Controlled SWAP([ancilla], (q1, q2));\n\n        // Apply H to the ancilla qubit again\n        H(ancilla);\n\n        // Measure the ancilla qubit\n        let result = M(ancilla);\n\n        // Output the result\n        Message($\"Swap test result: {result}\");\n\n        // Reset all qubits\n        Reset(q1);\n        Reset(q2);\n        Reset(ancilla);\n    }\n}",
+    "baseline_output": "```qsharp\nnamespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskSwapTest() : Unit {\n        use ancilla = Qubit();\n        use qubits = Qubit[2];\n\n        // Prepare the ancilla qubit in the |+\u27e9 state\n        H(ancilla);\n\n        // Assume qubits[0] and qubits[1] are prepared in the states to be compared\n        // Apply controlled-SWAP (Fredkin gate) using the ancilla as control\n        Controlled SWAP([ancilla], (qubits[0], qubits[1]));\n\n        // Apply H to the ancilla again\n        H(ancilla);\n\n        // Measure the ancilla qubit\n        let result = MResetZ(ancilla);\n\n        // Reset the qubits to |0\u27e9\n        for q in qubits {\n            _ <- MResetZ(q);\n        }\n\n        // Output the result\n        Message($\"Swap test result: {result}\");\n    }\n}\n```",
+    "rag_result": {
+      "id": "swap-test",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 27.22984290122986
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "swap-test",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(34,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(34,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(35,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(35,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 4 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(34,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(34,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(35,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(35,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    6 Error(s)\n\nTime Elapsed 00:00:06.46",
+          "elapsed_sec": 11.977837324142456
+        }
+      ]
+    }
+  },
+  {
+    "id": "amplitude-amplification",
+    "description": "Implement a single iteration of amplitude amplification.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskAmplitudeAmplification() : Unit {\n        use qs = Qubit[2];\n\n        // Assume the first qubit is the target and the second is the ancilla\n        // Initialize the ancilla qubit to |1\u27e9\n        X(qs[1]);\n\n        // Apply Hadamard to both qubits to create superposition\n        H(qs[0]);\n        H(qs[1]);\n\n        // Oracle: Assume the oracle marks the |11\u27e9 state\n        // This is a placeholder for the actual oracle\n        Controlled X([qs[0]], qs[1]);\n\n        // Apply the diffusion operator\n        H(qs[0]);\n        H(qs[1]);\n        X(qs[0]);\n        X(qs[1]);\n        Controlled X([qs[0]], qs[1]);\n        X(qs[0]);\n        X(qs[1]);\n        H(qs[0]);\n        H(qs[1]);\n\n        // Measure and reset qubits\n        for q in qs {\n            let _ = MResetZ(q);\n        }\n    }\n}",
+    "baseline_output": "```qsharp\nnamespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Diagnostics;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskAmplitudeAmplification() : Unit {\n        use qubits = Qubit[2];\n\n        // Assume the first qubit is the target and the second is the ancilla\n        // Initialize the qubits to the |+> state\n        H(qubits[0]);\n        H(qubits[1]);\n\n        // Oracle: Flip the sign of the amplitude of the |11> state\n        within {\n            CNOT(qubits[0], qubits[1]);\n        } apply {\n            Z(qubits[1]);\n        }\n\n        // Diffusion operator\n        within {\n            H(qubits[0]);\n            H(qubits[1]);\n            X(qubits[0]);\n            X(qubits[1]);\n            H(qubits[1]);\n        } apply {\n            CNOT(qubits[0], qubits[1]);\n        }\n        within {\n            H(qubits[1]);\n            X(qubits[0]);\n            X(qubits[1]);\n            H(qubits[0]);\n            H(qubits[1]);\n        } apply {\n            // No operation needed in the apply block\n        }\n\n        // Measure and reset qubits\n        for (qubit in qubits) {\n            let result = MResetZ(qubit);\n        }\n    }\n}\n```",
+    "rag_result": {
+      "id": "amplitude-amplification",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 22.063034296035767
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "amplitude-amplification",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(16,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(21,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(28,9): error QS5022: No identifier with the name \"Oracle\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(31,9): error QS5022: No identifier with the name \"Reflection\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 4 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(16,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(21,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(28,9): error QS5022: No identifier with the name \"Oracle\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(31,9): error QS5022: No identifier with the name \"Reflection\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    6 Error(s)\n\nTime Elapsed 00:00:05.68",
+          "elapsed_sec": 10.105847835540771
+        }
+      ]
+    }
+  },
+  {
+    "id": "bit-flip-code",
+    "description": "Encode and decode a logical qubit using the 3-qubit bit-flip code.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Diagnostics;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskBitFlipCode() : Unit {\n        use logicalQubit = Qubit[3];\n\n        // Encode the logical qubit using the 3-qubit bit-flip code\n        EncodeLogicalQubit(logicalQubit);\n\n        // Introduce a bit-flip error on the first qubit\n        X(logicalQubit[0]);\n\n        // Decode and correct the logical qubit\n        DecodeAndCorrect(logicalQubit);\n\n        // Reset all qubits before releasing them\n        ResetAll(logicalQubit);\n    }\n\n    operation EncodeLogicalQubit(qubits : Qubit[]) : Unit {\n        // Assume the first qubit is the logical qubit to be encoded\n        CNOT(qubits[0], qubits[1]);\n        CNOT(qubits[0], qubits[2]);\n    }\n\n    operation DecodeAndCorrect(qubits : Qubit[]) : Unit {\n        // Measure the parity of the qubits to detect errors\n        let parity01 = M(qubits[0]) == M(qubits[1]);\n        let parity02 = M(qubits[0]) == M(qubits[2]);\n\n        // Correct the error based on the parity measurements\n        if (not parity01 and parity02) {\n            X(qubits[1]);\n        } elif (parity01 and not parity02) {\n            X(qubits[2]);\n        } elif (not parity01 and not parity02) {\n            X(qubits[0]);\n        }\n\n        // Reset the qubits to |0\u27e9 state\n        ResetAll(qubits);\n    }\n}",
+    "baseline_output": "```qsharp\nnamespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation EncodeBitFlip(logicalQubit : Qubit, encodedQubits : Qubit[]) : Unit {\n        body {\n            // Assume encodedQubits has length 3\n            CNOT(logicalQubit, encodedQubits[0]);\n            CNOT(logicalQubit, encodedQubits[1]);\n        }\n    }\n\n    operation DecodeBitFlip(encodedQubits : Qubit[], logicalQubit : Qubit) : Unit {\n        body {\n            // Assume encodedQubits has length 3\n            CNOT(encodedQubits[0], logicalQubit);\n            CNOT(encodedQubits[1], logicalQubit);\n        }\n    }\n\n    operation CorrectBitFlip(encodedQubits : Qubit[]) : Unit {\n        body {\n            // Assume encodedQubits has length 3\n            use ancilla = Qubit();\n            CNOT(encodedQubits[0], ancilla);\n            CNOT(encodedQubits[1], ancilla);\n            CNOT(encodedQubits[2], ancilla);\n            let syndrome = MResetZ(ancilla);\n\n            if (syndrome == One) {\n                // Determine which qubit is flipped\n                if (MResetZ(encodedQubits[0]) == One) {\n                    X(encodedQubits[0]);\n                } elif (MResetZ(encodedQubits[1]) == One) {\n                    X(encodedQubits[1]);\n                } else {\n                    X(encodedQubits[2]);\n                }\n            }\n        }\n    }\n\n    operation TaskBitFlipCode() : Unit {\n        body {\n            use logicalQubit = Qubit();\n            use encodedQubits = Qubit[3];\n\n            // Prepare the logical qubit in |+\u27e9 state\n            H(logicalQubit);\n\n            // Encode the logical qubit\n            EncodeBitFlip(logicalQubit, encodedQubits);\n\n            // Simulate a bit-flip error on one of the encoded qubits\n            X(encodedQubits[0]);\n\n            // Correct the bit-flip error\n            CorrectBitFlip(encodedQubits);\n\n            // Decode the logical qubit\n            DecodeBitFlip(encodedQubits, logicalQubit);\n\n            // Measure and reset the logical qubit\n            let result = MResetZ(logicalQubit);\n\n            // Reset the encoded qubits\n            for qubit in encodedQubits {\n                _ <- MResetZ(qubit);\n            }\n        }\n    }\n}\n```",
+    "rag_result": {
+      "id": "bit-flip-code",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 39.79529070854187
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "bit-flip-code",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(59,17): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(24,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(26,17): error QS5004: The type (Bool, Bool) is not an array type. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(27,17): error QS5004: The type (Bool, Bool) is not an array type. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 5 errors, 5 warnings \n  \n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(29,17): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(31,21): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(33,21): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(9,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(17,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(40,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(59,17): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(24,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(9,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(17,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(40,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(26,17): error QS5004: The type (Bool, Bool) is not an array type. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(27,17): error QS5004: The type (Bool, Bool) is not an array type. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(29,17): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(31,21): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(33,21): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    5 Warning(s)\n    7 Error(s)\n\nTime Elapsed 00:00:05.96",
+          "elapsed_sec": 15.012548208236694
+        }
+      ]
+    }
+  },
+  {
+    "id": "phase-flip-code",
+    "description": "Encode and decode a logical qubit using the phase-flip code.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Diagnostics;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskPhaseFlipCode() : Unit {\n        use logicalQubit = Qubit[3];\n\n        // Encode the logical qubit\n        EncodeAsLogicalQubit(logicalQubit[0], logicalQubit[1...]);\n\n        // Induce a phase-flip error on a random qubit\n        Z(logicalQubit[DrawRandomInt(0, 2)]);\n\n        // Correct the phase-flip error\n        CorrectError(logicalQubit);\n\n        // Decode the logical qubit\n        Adjoint EncodeAsLogicalQubit(logicalQubit[0], logicalQubit[1...]);\n\n        // Measure and reset all qubits\n        for qubit in logicalQubit {\n            let _ = MResetZ(qubit);\n        }\n    }\n\n    operation EncodeAsLogicalQubit(physicalQubit : Qubit, aux : Qubit[]) : Unit is Adj {\n        ApplyToEach(CNOT(physicalQubit, _), aux);\n        ChangeBasis([physicalQubit] + aux);\n    }\n\n    operation ChangeBasis(qs : Qubit[]) : Unit is Adj {\n        ApplyToEach(H, qs);\n    }\n\n    operation CorrectError(logicalQubit : Qubit[]) : Unit {\n        Fact(Length(logicalQubit) == 3, \"`logicalQubit` must be length 3\");\n\n        use aux = Qubit[2];\n        ChangeBasis(logicalQubit);\n        CNOT(logicalQubit[0], aux[0]);\n        CNOT(logicalQubit[1], aux[0]);\n        CNOT(logicalQubit[1], aux[1]);\n        CNOT(logicalQubit[2], aux[1]);\n        ChangeBasis(logicalQubit);\n\n        let (parity01, parity12) = (M(aux[0]), M(aux[1]));\n        ResetAll(aux);\n\n        let indexOfError = if (parity01, parity12) == (One, Zero) {\n            0\n        } elif (parity01, parity12) == (One, One) {\n            1\n        } elif (parity01, parity12) == (Zero, One) {\n            2\n        } else {\n            -1\n        };\n\n        if indexOfError > -1 {\n            Z(logicalQubit[indexOfError]);\n        }\n    }\n}",
+    "baseline_output": "```qsharp\nnamespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation EncodePhaseFlip(logicalQubit : Qubit, encodedQubits : Qubit[]) : Unit {\n        body {\n            // Assume encodedQubits has length 3\n            CNOT(logicalQubit, encodedQubits[0]);\n            CNOT(logicalQubit, encodedQubits[1]);\n        }\n    }\n\n    operation DecodePhaseFlip(encodedQubits : Qubit[], logicalQubit : Qubit) : Unit {\n        body {\n            // Assume encodedQubits has length 3\n            CNOT(logicalQubit, encodedQubits[0]);\n            CNOT(logicalQubit, encodedQubits[1]);\n        }\n    }\n\n    operation CorrectPhaseFlip(encodedQubits : Qubit[]) : Unit {\n        body {\n            // Assume encodedQubits has length 3\n            within {\n                H(encodedQubits[0]);\n                H(encodedQubits[1]);\n                H(encodedQubits[2]);\n            } apply {\n                CNOT(encodedQubits[0], encodedQubits[1]);\n                CNOT(encodedQubits[1], encodedQubits[2]);\n                let syndrome = [M(encodedQubits[1]), M(encodedQubits[2])];\n                if (syndrome == [One, Zero]) {\n                    Z(encodedQubits[0]);\n                } elif (syndrome == [Zero, One]) {\n                    Z(encodedQubits[1]);\n                } elif (syndrome == [One, One]) {\n                    Z(encodedQubits[2]);\n                }\n            }\n        }\n    }\n\n    operation TaskPhaseFlipCode() : Unit {\n        body {\n            use logicalQubit = Qubit();\n            use encodedQubits = Qubit[3];\n\n            // Prepare logical qubit in |+> state\n            H(logicalQubit);\n\n            // Encode the logical qubit\n            EncodePhaseFlip(logicalQubit, encodedQubits);\n\n            // Simulate a phase flip error on the second qubit\n            Z(encodedQubits[1]);\n\n            // Correct the phase flip error\n            CorrectPhaseFlip(encodedQubits);\n\n            // Decode the logical qubit\n            DecodePhaseFlip(encodedQubits, logicalQubit);\n\n            // Measure and reset the logical qubit\n            let result = MResetZ(logicalQubit);\n            Message($\"Logical qubit measurement result: {result}\");\n\n            // Reset encoded qubits\n            for qubit in encodedQubits {\n                _ = MResetZ(qubit);\n            }\n        }\n    }\n}\n```",
+    "rag_result": {
+      "id": "phase-flip-code",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 41.009591817855835
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "phase-flip-code",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": true,
+          "test_ok": false,
+          "error": "[xUnit.net 00:00:00.43]     GeneratedTests.TaskPhaseFlipCode [FAIL]",
+          "elapsed_sec": 25.979289293289185
+        }
+      ]
+    }
+  },
+  {
+    "id": "controlled-rotation",
+    "description": "Implement a controlled rotation gate using standard library operations.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n\n    operation TaskControlledRotation() : Unit {\n        use (control, target) = (Qubit(), Qubit());\n\n        // Apply a controlled rotation around the Y axis\n        Controlled Ry([control], (PI() / 4.0, target));\n\n        // Measure and reset the qubits before releasing them\n        let _ = MResetZ(control);\n        let _ = MResetZ(target);\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n\n    operation TaskControlledRotation() : Unit {\n        use control = Qubit();\n        use target = Qubit();\n\n        // Prepare the control qubit in the |1\u27e9 state\n        X(control);\n\n        // Apply a controlled rotation around the Y axis\n        Controlled Ry([control], (PI() / 4.0, target));\n\n        // Measure and reset the qubits\n        let _ = MResetZ(control);\n        let _ = MResetZ(target);\n    }\n}",
+    "rag_result": {
+      "id": "controlled-rotation",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 23.265904426574707
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "controlled-rotation",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 20.04699444770813
+        }
+      ]
+    }
+  },
+  {
+    "id": "parametrized-ansatz",
+    "description": "Build a simple 2-qubit variational ansatz with parameters.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Math;\n\n    operation TaskParametrizedAnsatz() : Unit {\n        use qs = Qubit[2];\n        \n        // Define parameters for the ansatz\n        let theta1 = 0.5;\n        let theta2 = 1.0;\n\n        // Apply the variational ansatz\n        H(qs[0]);\n        Ry(theta1, qs[0]);\n        CNOT(qs[0], qs[1]);\n        Ry(theta2, qs[1]);\n\n        // Reset qubits before releasing them\n        for q in qs {\n            _ = MResetZ(q);\n        }\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskParametrizedAnsatz(theta1 : Double, theta2 : Double) : Unit {\n        use qubits = Qubit[2];\n        \n        // Apply Hadamard to both qubits\n        H(qubits[0]);\n        H(qubits[1]);\n\n        // Apply parameterized rotations\n        Rx(theta1, qubits[0]);\n        Rx(theta2, qubits[1]);\n\n        // Apply a CNOT gate\n        CNOT(qubits[0], qubits[1]);\n\n        // Reset qubits before releasing\n        for (qubit in qubits) {\n            let result = MResetZ(qubit);\n        }\n    }\n}",
+    "rag_result": {
+      "id": "parametrized-ansatz",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 33.243826389312744
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "parametrized-ansatz",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 19.44556999206543
+        }
+      ]
+    }
+  },
+  {
+    "id": "vqe-energy",
+    "description": "Sketch a VQE loop that prepares an ansatz and measures a Hamiltonian term.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskVqeEnergy() : Unit {\n        use qs = Qubit[2];\n        \n        // Prepare ansatz state\n        PrepareAnsatz(qs);\n\n        // Measure Hamiltonian term\n        let pauliTerm = [PauliZ, PauliZ];\n        let result = MeasureTerm(pauliTerm, qs);\n\n        // Reset qubits before release\n        ResetAll(qs);\n    }\n\n    operation PrepareAnsatz(qs : Qubit[]) : Unit {\n        H(qs[0]);\n        CNOT(qs[0], qs[1]);\n    }\n\n    function MeasureTerm(pauliTerm : Pauli[], qs : Qubit[]) : Double {\n        mutable zeroCount = 0;\n        let shots = 100;\n\n        for _ in 1..shots {\n            if Measure(pauliTerm, qs) == Zero {\n                set zeroCount += 1;\n            }\n            ResetAll(qs);\n        }\n\n        return IntAsDouble(zeroCount) / IntAsDouble(shots);\n    }\n}",
+    "baseline_output": "```qsharp\nnamespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation PrepareAnsatz(qubits : Qubit[]) : Unit {\n        // Example ansatz preparation\n        H(qubits[0]);\n        CNOT(qubits[0], qubits[1]);\n    }\n\n    operation MeasureHamiltonianTerm(qubits : Qubit[]) : Double {\n        // Example measurement of a Hamiltonian term\n        // Assume measuring Z on the first qubit\n        let result = MResetZ(qubits[0]);\n        return 1.0 - 2.0 * IntAsDouble(ResultAsInt(result));\n    }\n\n    operation TaskVqeEnergy() : Unit {\n        use qubits = Qubit[2];\n        \n        // Prepare the ansatz\n        PrepareAnsatz(qubits);\n\n        // Measure the Hamiltonian term\n        let energy = MeasureHamiltonianTerm(qubits);\n\n        // Output the measured energy\n        Message($\"Measured energy: {energy}\");\n\n        // Ensure all qubits are reset before release\n        for (qubit in qubits) {\n            _ = MResetZ(qubit);\n        }\n    }\n}\n```",
+    "rag_result": {
+      "id": "vqe-energy",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/vqe_energy.qs(35,16): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/vqe_energy.qs(35,41): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 2 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/vqe_energy.qs(35,16): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/vqe_energy.qs(35,41): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    4 Error(s)\n\nTime Elapsed 00:00:05.87",
+          "elapsed_sec": 20.825841188430786
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "vqe-energy",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 21.70029854774475
+        }
+      ]
+    }
+  },
+  {
+    "id": "measure-register",
+    "description": "Measure a register of 3 qubits and return the results array.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskMeasureRegister() : Unit {\n        use qs = Qubit[3];\n        mutable results = new Result[3];\n\n        for i in 0..2 {\n            let result = MResetZ(qs[i]);\n            set results w/= i <- result;\n        }\n\n        // Output the results array\n        Message($\"Measurement results: {results}\");\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskMeasureRegister() : Unit {\n        use qubits = Qubit[3];\n        mutable results = new Result[3];\n\n        for (i in 0..2) {\n            let result = MResetZ(qubits[i]);\n            set results w/= i <- result;\n        }\n\n        Message($\"Measurement results: {results}\");\n    }\n}",
+    "rag_result": {
+      "id": "measure-register",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 22.70451593399048
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "measure-register",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 20.859819889068604
+        }
+      ]
+    }
+  },
+  {
+    "id": "reset-register",
+    "description": "Reset an array of qubits after measurement.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n\n    operation TaskResetRegister() : Unit {\n        use qubits = Qubit[5]; // Example with 5 qubits, can be adjusted as needed\n        for qubit in qubits {\n            let result = M(qubit);\n            if (result == One) {\n                X(qubit);\n            }\n        }\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskResetRegister() : Unit {\n        use qubits = Qubit[5];\n        \n        for (qubit in qubits) {\n            let result = M(qubit);\n            if (result == One) {\n                X(qubit);\n            }\n        }\n    }\n}",
+    "rag_result": {
+      "id": "reset-register",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 22.837013721466064
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "reset-register",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 19.4754741191864
+        }
+      ]
+    }
+  },
+  {
+    "id": "controlled-not",
+    "description": "Create a reusable operation that applies CNOT to a pair of qubits.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n\n    operation TaskControlledNot() : Unit {\n        use (control, target) = (Qubit(), Qubit());\n        \n        // Apply CNOT gate\n        CNOT(control, target);\n\n        // Measure and reset qubits before releasing them\n        if MResetZ(control) == One {\n            X(control);\n        }\n        if MResetZ(target) == One {\n            X(target);\n        }\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n\n    operation TaskControlledNot() : Unit {\n        use (control, target) = (Qubit(), Qubit());\n        \n        // Apply CNOT gate\n        CNOT(control, target);\n        \n        // Reset qubits before releasing\n        let _ = MResetZ(control);\n        let _ = MResetZ(target);\n    }\n}",
+    "rag_result": {
+      "id": "controlled-not",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 21.13734745979309
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "controlled-not",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 19.722938537597656
+        }
+      ]
+    }
+  },
+  {
+    "id": "circuit-depth",
+    "description": "Prepare a 4-qubit circuit with alternating H and CNOT layers.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n\n    operation TaskCircuitDepth() : Unit {\n        use qubits = Qubit[4];\n\n        // Apply H gates to all qubits\n        for (i in 0..3) {\n            H(qubits[i]);\n        }\n\n        // Apply CNOT gates in a chain\n        CNOT(qubits[0], qubits[1]);\n        CNOT(qubits[1], qubits[2]);\n        CNOT(qubits[2], qubits[3]);\n\n        // Apply another layer of H gates\n        for (i in 0..3) {\n            H(qubits[i]);\n        }\n\n        // Apply CNOT gates in reverse chain\n        CNOT(qubits[3], qubits[2]);\n        CNOT(qubits[2], qubits[1]);\n        CNOT(qubits[1], qubits[0]);\n\n        // Reset all qubits before releasing them\n        for (i in 0..3) {\n            let _ = MResetZ(qubits[i]);\n        }\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Diagnostics;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskCircuitDepth() : Unit {\n        use qubits = Qubit[4];\n\n        // Apply alternating H and CNOT layers\n        H(qubits[0]);\n        H(qubits[1]);\n        H(qubits[2]);\n        H(qubits[3]);\n\n        CNOT(qubits[0], qubits[1]);\n        CNOT(qubits[2], qubits[3]);\n\n        H(qubits[0]);\n        H(qubits[1]);\n        H(qubits[2]);\n        H(qubits[3]);\n\n        CNOT(qubits[1], qubits[2]);\n        CNOT(qubits[3], qubits[0]);\n\n        // Reset all qubits before releasing\n        for (qubit in qubits) {\n            _ <- MResetZ(qubit);\n        }\n    }\n}",
+    "rag_result": {
+      "id": "circuit-depth",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": true,
+          "test_ok": false,
+          "error": "[xUnit.net 00:00:00.50]     GeneratedTests.TaskCircuitDepth [FAIL]",
+          "elapsed_sec": 23.529961824417114
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "circuit-depth",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 21.489096641540527
+        }
+      ]
+    }
+  },
+  {
+    "id": "entanglement-chain",
+    "description": "Entangle 4 qubits into a linear cluster state.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Diagnostics;\n\n    operation TaskEntanglementChain() : Unit {\n        use qubits = Qubit[4];\n\n        // Prepare the linear cluster state\n        H(qubits[0]);\n        CNOT(qubits[0], qubits[1]);\n        CNOT(qubits[1], qubits[2]);\n        CNOT(qubits[2], qubits[3]);\n\n        // Apply Z gates to create entanglement\n        Z(qubits[1]);\n        Z(qubits[2]);\n\n        // Measure and reset all qubits\n        for q in qubits {\n            let _ = MResetZ(q);\n        }\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n\n    operation TaskEntanglementChain() : Unit {\n        use qubits = Qubit[4];\n        \n        // Prepare the first qubit in superposition\n        H(qubits[0]);\n\n        // Create entanglement in a linear chain\n        for (i in 0..2) {\n            CNOT(qubits[i], qubits[i + 1]);\n        }\n\n        // Reset all qubits before releasing them\n        for (q in qubits) {\n            let result = MResetZ(q);\n        }\n    }\n}",
+    "rag_result": {
+      "id": "entanglement-chain",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 25.37432336807251
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "entanglement-chain",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 20.137190580368042
+        }
+      ]
+    }
+  },
+  {
+    "id": "measurement-basis",
+    "description": "Measure a qubit in the X basis and return the result.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n\n    operation TaskMeasurementBasis() : Unit {\n        use q = Qubit();\n        \n        // Apply H to transform the measurement basis from Z to X\n        H(q);\n        \n        // Measure the qubit in the X basis\n        let result = M(q);\n        \n        // Reset the qubit\n        if (result == One) {\n            X(q);\n        }\n    }\n}",
+    "baseline_output": "```qsharp\nnamespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n\n    operation TaskMeasurementBasis() : Unit {\n        use q = Qubit();\n        \n        // Apply H to measure in the X basis\n        H(q);\n        \n        // Measure the qubit and reset it\n        let result = MResetZ(q);\n        \n        // Output the result\n        Message($\"Measurement result: {result}\");\n    }\n}\n```",
+    "rag_result": {
+      "id": "measurement-basis",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 23.432313680648804
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "measurement-basis",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 20.180643558502197
+        }
+      ]
+    }
+  },
+  {
+    "id": "controlled-phase",
+    "description": "Implement a controlled phase gate using standard operations.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n\n    operation TaskControlledPhase() : Unit {\n        use (control, target) = (Qubit(), Qubit());\n\n        // Apply the controlled phase gate\n        H(target);\n        Controlled Rz([control], (PI() / 2.0, target));\n        H(target);\n\n        // Measure and reset qubits before releasing them\n        let _ = MResetZ(control);\n        let _ = MResetZ(target);\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskControlledPhase() : Unit {\n        use (control, target) = (Qubit(), Qubit());\n        \n        // Apply the controlled phase gate\n        H(target);\n        CNOT(control, target);\n        Rz(PI() / 2.0, target);\n        CNOT(control, target);\n        H(target);\n\n        // Reset qubits before releasing\n        if (MResetZ(control) == One) {\n            X(control);\n        }\n        if (MResetZ(target) == One) {\n            X(target);\n        }\n    }\n}",
+    "rag_result": {
+      "id": "controlled-phase",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 22.393158435821533
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "controlled-phase",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 22.191392421722412
+        }
+      ]
+    }
+  },
+  {
+    "id": "phase-kickback",
+    "description": "Demonstrate phase kickback with a controlled-Z gate.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n\n    operation TaskPhaseKickback() : Unit {\n        use control = Qubit();\n        use target = Qubit();\n\n        // Prepare the control qubit in superposition\n        H(control);\n\n        // Apply the controlled-Z gate\n        (Controlled Z)([control], target);\n\n        // Measure the control qubit to observe phase kickback\n        let resultControl = M(control);\n        let resultTarget = M(target);\n\n        // Reset qubits before releasing\n        if resultControl == One {\n            X(control);\n        }\n        if resultTarget == One {\n            X(target);\n        }\n    }\n}",
+    "baseline_output": "```qsharp\nnamespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n\n    operation TaskPhaseKickback() : Unit {\n        use (control, target) = (Qubit(), Qubit());\n\n        // Prepare the control qubit in the |+\u27e9 state\n        H(control);\n\n        // Apply the controlled-Z gate\n        CNOT(control, target);\n        Z(target);\n        CNOT(control, target);\n\n        // Measure and reset the qubits\n        let resultControl = MResetZ(control);\n        let resultTarget = MResetZ(target);\n\n        // Output the measurement results\n        Message($\"Control qubit measurement: {resultControl}\");\n        Message($\"Target qubit measurement: {resultTarget}\");\n    }\n}\n```",
+    "rag_result": {
+      "id": "phase-kickback",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 22.83553147315979
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "phase-kickback",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 24.34060835838318
+        }
+      ]
+    }
+  },
+  {
+    "id": "simple-adder",
+    "description": "Implement a 1-bit quantum adder with a carry.",
+    "rag_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskSimpleAdder() : Unit {\n        use (a, b, carryIn, sum, carryOut) = (Qubit(), Qubit(), Qubit(), Qubit(), Qubit());\n\n        // Initialize inputs for demonstration\n        X(a); // Set a = 1\n        X(b); // Set b = 1\n        // carryIn is initialized to 0\n\n        // Quantum adder logic\n        CNOT(a, sum);\n        CNOT(b, sum);\n        CCNOT(a, b, carryOut);\n        CNOT(carryIn, sum);\n        CCNOT(carryIn, sum, carryOut);\n\n        // Measure and reset qubits\n        let _ = MResetZ(a);\n        let _ = MResetZ(b);\n        let _ = MResetZ(carryIn);\n        let _ = MResetZ(sum);\n        let _ = MResetZ(carryOut);\n    }\n}",
+    "baseline_output": "namespace Generated {\n    open Microsoft.Quantum.Intrinsic;\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Measurement;\n    open Microsoft.Quantum.Math;\n    open Microsoft.Quantum.Arrays;\n\n    operation TaskSimpleAdder() : Unit {\n        use a = Qubit();\n        use b = Qubit();\n        use carry = Qubit();\n\n        // Prepare initial state for a and b\n        // Assume a and b are initially in |0\u27e9 state\n        // To test the adder, you can set a and b to |1\u27e9 by applying X\n        X(a);\n        X(b);\n\n        // Quantum adder logic\n        CNOT(a, carry);\n        CNOT(b, carry);\n        CNOT(a, b);\n\n        // Measure the result\n        let resultA = MResetZ(a);\n        let resultB = MResetZ(b);\n        let resultCarry = MResetZ(carry);\n\n        // Output the results\n        Message($\"Result A: {resultA}\");\n        Message($\"Result B: {resultB}\");\n        Message($\"Carry: {resultCarry}\");\n    }\n}",
+    "rag_result": {
+      "id": "simple-adder",
+      "pass@1": true,
+      "pass@3": true,
+      "compile@1": true,
+      "attempts": [
+        {
+          "success": true,
+          "compile_ok": true,
+          "test_ok": true,
+          "error": null,
+          "elapsed_sec": 23.771540641784668
+        }
+      ]
+    },
+    "baseline_result": {
+      "id": "simple-adder",
+      "pass@1": false,
+      "pass@3": false,
+      "compile@1": false,
+      "attempts": [
+        {
+          "success": false,
+          "compile_ok": false,
+          "test_ok": false,
+          "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/simple_adder.qs(24,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/simple_adder.qs(24,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 2 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/simple_adder.qs(24,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/simple_adder.qs(24,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    4 Error(s)\n\nTime Elapsed 00:00:05.72",
+          "elapsed_sec": 10.682577848434448
+        }
+      ]
+    }
+  }
+]

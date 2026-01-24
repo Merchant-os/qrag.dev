@@ -1,0 +1,170 @@
+{
+  "format": 1,
+  "restore": {
+    "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent.Tests/QsharpRagAgent.Tests.csproj": {}
+  },
+  "projects": {
+    "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent.Tests/QsharpRagAgent.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent.Tests/QsharpRagAgent.Tests.csproj",
+        "projectName": "QsharpRagAgent.Tests",
+        "projectPath": "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent.Tests/QsharpRagAgent.Tests.csproj",
+        "packagesPath": "/home/ivan/.nuget/packages/",
+        "outputPath": "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/ivan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj": {
+                "projectPath": "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.9.0, )"
+            },
+            "Microsoft.Quantum.QSharp.Core": {
+              "target": "Package",
+              "version": "[0.28.302812, )"
+            },
+            "Microsoft.Quantum.Sdk": {
+              "target": "Package",
+              "version": "[0.28.302812, )"
+            },
+            "Microsoft.Quantum.Simulators": {
+              "target": "Package",
+              "version": "[0.28.302812, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.6.5, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.5.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/ivan/.dotnet/sdk/6.0.428/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj",
+        "projectName": "QsharpRagAgent",
+        "projectPath": "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj",
+        "packagesPath": "/home/ivan/.nuget/packages/",
+        "outputPath": "/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/ivan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Quantum.CSharpGeneration": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.28.302812, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Quantum.QSharp.Core": {
+              "target": "Package",
+              "version": "[0.28.302812, )"
+            },
+            "Microsoft.Quantum.Runtime.Core": {
+              "target": "Package",
+              "version": "[0.28.302812, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Quantum.Standard": {
+              "target": "Package",
+              "version": "[0.28.302812, )"
+            },
+            "Microsoft.Quantum.Targets.Interfaces": {
+              "target": "Package",
+              "version": "[0.28.302812, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/ivan/.dotnet/sdk/6.0.428/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

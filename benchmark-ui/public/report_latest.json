@@ -1,0 +1,803 @@
+{
+  "baseline": {
+    "pass@1": 0.6538461538461539,
+    "pass@3": 0.6538461538461539,
+    "compile@1": 0.6923076923076923,
+    "n_tasks": 26,
+    "tasks": [
+      {
+        "id": "bell-state",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 21.147677421569824
+          }
+        ]
+      },
+      {
+        "id": "superposition",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 21.06752371788025
+          }
+        ]
+      },
+      {
+        "id": "random-bit",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 22.098493814468384
+          }
+        ]
+      },
+      {
+        "id": "ghz-state",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 20.375503063201904
+          }
+        ]
+      },
+      {
+        "id": "teleportation",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 22.650287628173828
+          }
+        ]
+      },
+      {
+        "id": "deutsch-jozsa",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/deutsch_jozsa.qs(40,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/deutsch_jozsa.qs(43,13): error QS5007: The type Result[] does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 2 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/deutsch_jozsa.qs(40,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/deutsch_jozsa.qs(43,13): error QS5007: The type Result[] does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    4 Error(s)\n\nTime Elapsed 00:00:06.03",
+            "elapsed_sec": 12.382075786590576
+          }
+        ]
+      },
+      {
+        "id": "grover-4-items",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 24.681732654571533
+          }
+        ]
+      },
+      {
+        "id": "phase-estimation",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(10,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(15,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(30,9): error QS5022: No identifier with the name \"ControlledU\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 3 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(10,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(15,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(30,9): error QS5022: No identifier with the name \"ControlledU\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    5 Error(s)\n\nTime Elapsed 00:00:05.96",
+            "elapsed_sec": 11.851806640625
+          }
+        ]
+      },
+      {
+        "id": "qft",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(15,36): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(24,9): error QS5022: No identifier with the name \"Swap\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 2 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(15,36): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(24,9): error QS5022: No identifier with the name \"Swap\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    4 Error(s)\n\nTime Elapsed 00:00:05.87",
+            "elapsed_sec": 11.802432537078857
+          }
+        ]
+      },
+      {
+        "id": "bernstein-vazirani",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(19,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(24,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,25): warning QS3302: Deprecated syntax. Use \"and\" to denote the logical AND operator. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(31,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(36,26): warning QS3308: Deprecated syntax. Use [] to construct an empty array, or [x, size = n] to construct an array of x repeated n times. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(37,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,18): error QS0001: Expected type Bool, but actual type was Int. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,29): error QS0001: Expected type Bool, but actual type was Int. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,13): error QS0002: The type Int doesn't share a supertype with type Bool. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  Expected: Bool (or a related type)\n    Actual: Int\n  \n  ____________________________________________\n  \n  Q# compilation failed: 4 errors, 6 warnings \n  \n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(42,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(19,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(24,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,25): warning QS3302: Deprecated syntax. Use \"and\" to denote the logical AND operator. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(31,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(36,26): warning QS3308: Deprecated syntax. Use [] to construct an empty array, or [x, size = n] to construct an array of x repeated n times. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(37,13): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,18): error QS0001: Expected type Bool, but actual type was Int. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,29): error QS0001: Expected type Bool, but actual type was Int. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(25,13): error QS0002: The type Int doesn't share a supertype with type Bool. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bernstein_vazirani.qs(42,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    6 Warning(s)\n    6 Error(s)\n\nTime Elapsed 00:00:06.24",
+            "elapsed_sec": 13.867279052734375
+          }
+        ]
+      },
+      {
+        "id": "swap-test",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(34,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(34,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(35,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(35,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 4 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(34,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(34,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(35,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/swap_test.qs(35,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    6 Error(s)\n\nTime Elapsed 00:00:06.46",
+            "elapsed_sec": 11.977837324142456
+          }
+        ]
+      },
+      {
+        "id": "amplitude-amplification",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(16,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(21,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(28,9): error QS5022: No identifier with the name \"Oracle\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(31,9): error QS5022: No identifier with the name \"Reflection\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 4 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(16,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(21,9): error QS4002: Declarations and their attributes, as well as open-directives can only occur within a namespace. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(28,9): error QS5022: No identifier with the name \"Oracle\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/amplitude_amplification.qs(31,9): error QS5022: No identifier with the name \"Reflection\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    6 Error(s)\n\nTime Elapsed 00:00:05.68",
+            "elapsed_sec": 10.105847835540771
+          }
+        ]
+      },
+      {
+        "id": "bit-flip-code",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(59,17): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(24,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(26,17): error QS5004: The type (Bool, Bool) is not an array type. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(27,17): error QS5004: The type (Bool, Bool) is not an array type. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 5 errors, 5 warnings \n  \n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(29,17): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(31,21): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(33,21): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(9,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(17,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(40,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(59,17): warning QS3306: Deprecated syntax. Parentheses here are no longer required and will not be supported in the future. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(24,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(9,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(17,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(40,13): warning QS3003: Deprecated syntax. An argument tuple is expected where \"...\" indicates the position of the declaration arguments, e.g. \"(...)\" for body and adjoint, \"(cs, ...)\" for controlled and controlled adjoint. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(26,17): error QS5004: The type (Bool, Bool) is not an array type. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(27,17): error QS5004: The type (Bool, Bool) is not an array type. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(29,17): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(31,21): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/bit_flip_code.qs(33,21): error QS5007: The type (Bool, Bool) does not support equality comparison. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    5 Warning(s)\n    7 Error(s)\n\nTime Elapsed 00:00:05.96",
+            "elapsed_sec": 15.012548208236694
+          }
+        ]
+      },
+      {
+        "id": "phase-flip-code",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": true,
+            "test_ok": false,
+            "error": "[xUnit.net 00:00:00.43]     GeneratedTests.TaskPhaseFlipCode [FAIL]",
+            "elapsed_sec": 25.979289293289185
+          }
+        ]
+      },
+      {
+        "id": "controlled-rotation",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 20.04699444770813
+          }
+        ]
+      },
+      {
+        "id": "parametrized-ansatz",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 19.44556999206543
+          }
+        ]
+      },
+      {
+        "id": "vqe-energy",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 21.70029854774475
+          }
+        ]
+      },
+      {
+        "id": "measure-register",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 20.859819889068604
+          }
+        ]
+      },
+      {
+        "id": "reset-register",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 19.4754741191864
+          }
+        ]
+      },
+      {
+        "id": "controlled-not",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 19.722938537597656
+          }
+        ]
+      },
+      {
+        "id": "circuit-depth",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 21.489096641540527
+          }
+        ]
+      },
+      {
+        "id": "entanglement-chain",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 20.137190580368042
+          }
+        ]
+      },
+      {
+        "id": "measurement-basis",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 20.180643558502197
+          }
+        ]
+      },
+      {
+        "id": "controlled-phase",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 22.191392421722412
+          }
+        ]
+      },
+      {
+        "id": "phase-kickback",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 24.34060835838318
+          }
+        ]
+      },
+      {
+        "id": "simple-adder",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/simple_adder.qs(24,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/simple_adder.qs(24,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 2 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/simple_adder.qs(24,11): error QS3035: Unexpected code fragment. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/simple_adder.qs(24,9): error QS3103: Identifiers need to start with an ASCII letter or an underscore, and need to contain at least one non-underscore character. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    4 Error(s)\n\nTime Elapsed 00:00:05.72",
+            "elapsed_sec": 10.682577848434448
+          }
+        ]
+      }
+    ]
+  },
+  "rag": {
+    "pass@1": 0.8461538461538461,
+    "pass@3": 0.8461538461538461,
+    "compile@1": 0.8846153846153846,
+    "n_tasks": 26,
+    "tasks": [
+      {
+        "id": "bell-state",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 27.0644268989563
+          }
+        ]
+      },
+      {
+        "id": "superposition",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 16.344350576400757
+          }
+        ]
+      },
+      {
+        "id": "random-bit",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 17.64934015274048
+          }
+        ]
+      },
+      {
+        "id": "ghz-state",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 17.796780824661255
+          }
+        ]
+      },
+      {
+        "id": "teleportation",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 19.500664710998535
+          }
+        ]
+      },
+      {
+        "id": "deutsch-jozsa",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 32.463719844818115
+          }
+        ]
+      },
+      {
+        "id": "grover-4-items",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 30.380570888519287
+          }
+        ]
+      },
+      {
+        "id": "phase-estimation",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(33,13): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 1 error, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/phase_estimation.qs(33,13): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    3 Error(s)\n\nTime Elapsed 00:00:05.27",
+            "elapsed_sec": 21.736281633377075
+          }
+        ]
+      },
+      {
+        "id": "qft",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(41,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 1 error, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/qft.qs(41,9): error QS0005: This expression has type Result and its value is implicitly ignored. Use \"let _ = expr;\" or \"Ignore(expr);\" to discard the value explicitly. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    3 Error(s)\n\nTime Elapsed 00:00:05.14",
+            "elapsed_sec": 32.48005676269531
+          }
+        ]
+      },
+      {
+        "id": "bernstein-vazirani",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 25.091742753982544
+          }
+        ]
+      },
+      {
+        "id": "swap-test",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 27.22984290122986
+          }
+        ]
+      },
+      {
+        "id": "amplitude-amplification",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 22.063034296035767
+          }
+        ]
+      },
+      {
+        "id": "bit-flip-code",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 39.79529070854187
+          }
+        ]
+      },
+      {
+        "id": "phase-flip-code",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 41.009591817855835
+          }
+        ]
+      },
+      {
+        "id": "controlled-rotation",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 23.265904426574707
+          }
+        ]
+      },
+      {
+        "id": "parametrized-ansatz",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 33.243826389312744
+          }
+        ]
+      },
+      {
+        "id": "vqe-energy",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": false,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": false,
+            "test_ok": false,
+            "error": "MSBuild version 17.3.4+a400405ba for .NET\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Determining projects to restore...\n  All projects are up-to-date for restore.\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/vqe_energy.qs(35,16): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/vqe_energy.qs(35,41): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n  \n  ____________________________________________\n  \n  Q# compilation failed: 2 errors, 0 warnings \n  \n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n\nBuild FAILED.\n\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/vqe_energy.qs(35,16): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/Generated/vqe_energy.qs(35,41): error QS5022: No identifier with the name \"IntAsDouble\" exists. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(155,5): error MSB3073: The command \"dotnet \"/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/DefaultItems/../tools/qsc/qsc.dll\" build --format MsBuild -v Normal --response-files obj/qsharp/config/qsc.rsp\" exited with code 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n/home/ivan/.nuget/packages/microsoft.quantum.sdk/0.28.302812/Sdk/Sdk.targets(160,5): error : Q# compiler failed with exit code: 253. [/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/QsharpRagAgent.csproj]\n    0 Warning(s)\n    4 Error(s)\n\nTime Elapsed 00:00:05.87",
+            "elapsed_sec": 20.825841188430786
+          }
+        ]
+      },
+      {
+        "id": "measure-register",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 22.70451593399048
+          }
+        ]
+      },
+      {
+        "id": "reset-register",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 22.837013721466064
+          }
+        ]
+      },
+      {
+        "id": "controlled-not",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 21.13734745979309
+          }
+        ]
+      },
+      {
+        "id": "circuit-depth",
+        "pass@1": false,
+        "pass@3": false,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": false,
+            "compile_ok": true,
+            "test_ok": false,
+            "error": "[xUnit.net 00:00:00.50]     GeneratedTests.TaskCircuitDepth [FAIL]",
+            "elapsed_sec": 23.529961824417114
+          }
+        ]
+      },
+      {
+        "id": "entanglement-chain",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 25.37432336807251
+          }
+        ]
+      },
+      {
+        "id": "measurement-basis",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 23.432313680648804
+          }
+        ]
+      },
+      {
+        "id": "controlled-phase",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 22.393158435821533
+          }
+        ]
+      },
+      {
+        "id": "phase-kickback",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 22.83553147315979
+          }
+        ]
+      },
+      {
+        "id": "simple-adder",
+        "pass@1": true,
+        "pass@3": true,
+        "compile@1": true,
+        "attempts": [
+          {
+            "success": true,
+            "compile_ok": true,
+            "test_ok": true,
+            "error": null,
+            "elapsed_sec": 23.771540641784668
+          }
+        ]
+      }
+    ]
+  },
+  "delta": {
+    "pass@1": 0.1923076923076923,
+    "pass@3": 0.1923076923076923,
+    "compile@1": 0.1923076923076923
+  }
+}

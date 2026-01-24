@@ -1,0 +1,12 @@
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/bin/Debug/net6.0/QsharpRagAgent.deps.json
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/bin/Debug/net6.0/QsharpRagAgent.dll
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/bin/Debug/net6.0/QsharpRagAgent.pdb
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/Debug/net6.0/QsharpRagAgent.csproj.AssemblyReference.cache
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/Debug/net6.0/QsharpRagAgent.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/Debug/net6.0/QsharpRagAgent.AssemblyInfoInputs.cache
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/Debug/net6.0/QsharpRagAgent.AssemblyInfo.cs
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/Debug/net6.0/QsharpRagAgent.csproj.CoreCompileInputs.cache
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/Debug/net6.0/QsharpRagAgent.dll
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/Debug/net6.0/refint/QsharpRagAgent.dll
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/Debug/net6.0/QsharpRagAgent.pdb
+/mnt/c/Users/ivanv/OneDrive/Desktop/Quantum RAG Agent/qsharp-rag-agent/QsharpRagAgent/obj/Debug/net6.0/ref/QsharpRagAgent.dll

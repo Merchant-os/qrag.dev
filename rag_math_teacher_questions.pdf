@@ -1,0 +1,97 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 4661 >>
+stream
+BT
+/F1 16 Tf
+72 750 Td (RAG project notes and questions for my maths teacher) Tj
+/F1 10 Tf
+0 -26 Td (Project overview \(what I will show\)) Tj
+0 -13 Td (- Goal: answer questions using my documents with fewer hallucinations) Tj
+0 -13 Td (- Inputs: user query, a document corpus, and a generator model) Tj
+0 -13 Td (- Steps: embed -> retrieve -> rerank \(optional\) -> generate) Tj
+0 -13 Td (- Output: final answer with citations to retrieved chunks) Tj
+0 -13 Td (- Why RAG: improves factuality by grounding answers in sources) Tj
+0 -19 Td (Math and ML basics I should know \(in depth\)) Tj
+0 -13 Td (- Vector spaces: dimension, basis, norms, and geometric intuition) Tj
+0 -13 Td (- Similarity measures: dot product, cosine similarity, Euclidean distance) Tj
+0 -13 Td (- Normalization: why unit vectors make cosine comparable across texts) Tj
+0 -13 Td (- Probability basics: conditional probability and Bayes rule) Tj
+0 -13 Td (- Softmax: turns scores into probabilities; temperature controls sharpness) Tj
+0 -13 Td (- Cross-entropy loss: measures prediction error for language models) Tj
+0 -13 Td (- Optimization: gradient descent, learning rate, and convergence behavior) Tj
+0 -13 Td (- Embeddings: function f\(text\) -> R^d; same meaning -> nearby vectors) Tj
+0 -13 Td (- Contrastive learning: pull positives together, push negatives apart) Tj
+0 -13 Td (- Nearest neighbors: exact vs approximate; recall vs speed tradeoffs) Tj
+0 -13 Td (- Information retrieval metrics: precision, recall, MRR, nDCG) Tj
+0 -13 Td (- Attention: weighted sums of value vectors; weights from softmax\(qk^T\)) Tj
+0 -13 Td (- Context window: limits; why chunking and overlap matter) Tj
+0 -13 Td (- Tokenization: how text becomes tokens and affects lengths) Tj
+0 -13 Td (- Error sources: retrieval failure vs generation error) Tj
+0 -19 Td (How the RAG math fits together \(plain language\)) Tj
+0 -13 Td (- Convert each document chunk into an embedding vector) Tj
+0 -13 Td (- Convert the user query into an embedding vector) Tj
+0 -13 Td (- Compute similarity scores between query and chunks) Tj
+0 -13 Td (- Retrieve top-k most similar chunks \(approximate search in practice\)) Tj
+0 -13 Td (- Optional reranker refines ordering using a larger model) Tj
+0 -13 Td (- Generator predicts the answer conditioned on query + retrieved chunks) Tj
+0 -13 Td (- Attention blends tokens to focus on relevant evidence) Tj
+0 -19 Td (Questions to ask and what they mean) Tj
+0 -13 Td (1\) How should I interpret embeddings geometrically?) Tj
+0 -13 Td (   Meaning: I want intuition for why semantic similarity corresponds to distance) Tj
+0 -13 Td (   and what properties of high-dimensional geometry matter here.) Tj
+0 -13 Td (2\) When should I use cosine similarity vs Euclidean distance?) Tj
+0 -13 Td (   Meaning: I want to know the math reasons and assumptions behind each metric.) Tj
+0 -13 Td (3\) What loss functions are used for embedding models?) Tj
+0 -13 Td (   Meaning: I want to understand contrastive loss, triplet loss, or others) Tj
+0 -13 Td (   and how they shape the geometry of the embedding space.) Tj
+0 -13 Td (4\) How does attention compute weights and why softmax?) Tj
+0 -13 Td (   Meaning: I want to connect q,k,v dot products to probability weights and) Tj
+0 -13 Td (   understand why softmax normalization is used.) Tj
+0 -13 Td (5\) How can I measure retrieval quality?) Tj
+0 -13 Td (   Meaning: I want to compute precision/recall/MRR and interpret tradeoffs) Tj
+0 -13 Td (   between retrieving more evidence vs introducing noise.) Tj
+0 -13 Td (6\) Why does RAG reduce hallucinations?) Tj
+0 -13 Td (   Meaning: I want a probabilistic explanation of conditioning on evidence) Tj
+0 -13 Td (   and how grounding changes the model's output distribution.) Tj
+0 -13 Td (7\) How should I choose chunk size and overlap?) Tj
+0 -13 Td (   Meaning: I want guidance on how chunking affects similarity, recall,) Tj
+0 -13 Td (   and the generator's ability to use the evidence.) Tj
+0 -13 Td (8\) What are the main failure modes of RAG?) Tj
+0 -13 Td (   Meaning: I want to separate retrieval errors from generation errors and) Tj
+0 -13 Td (   understand where the math suggests improvements.) Tj
+0 -19 Td (How I will approach you about the project) Tj
+0 -13 Td (- Bring a short demo: same question with and without RAG) Tj
+0 -13 Td (- Show a simple diagram of the pipeline and where the math is used) Tj
+0 -13 Td (- Explain what I already know and where I am confused) Tj
+0 -13 Td (- Ask you to verify my understanding of similarity, attention, and metrics) Tj
+0 -13 Td (- Ask for resources or exercises to practice the math) Tj
+0 -13 Td (- Ask for a short follow-up meeting to go deeper) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000004954 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+5024
+%%EOF
