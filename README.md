@@ -1,4 +1,4 @@
-# QRAG — Quantum RAG Agent
+# QRAG - Quantum RAG Agent
 
 Retrieval-Augmented Generation system for Q# quantum programming. Scrapes real QDK examples, embeds them with OpenAI, retrieves relevant context at generation time, and benchmarks the output against a no-retrieval baseline.
 
@@ -32,7 +32,7 @@ Query: "Implement Grover's search for 4 items"
 
 ```
 ├── agent/
-│   ├── agent.py          # RAG agent — retrieval + generation
+│   ├── agent.py          # RAG agent (retrieval + generation)
 │   ├── baseline.py       # Baseline agent (no retrieval, for A/B comparison)
 │   ├── glm_client.py     # OpenAI client wrapper
 │   ├── prompts.py        # System prompts enforcing QDK 0.28 syntax
@@ -50,7 +50,7 @@ Query: "Implement Grover's search for 4 items"
 │
 ├── benchmark/
 │   ├── tasks.json        # Benchmark task definitions
-│   ├── harness.py        # Full benchmark — generate, build, test
+│   ├── harness.py        # Full benchmark (generate, build, test)
 │   ├── preview.py        # Quick side-by-side preview (no build)
 │   └── scoring.py        # Heuristic scoring fallback
 │
@@ -110,7 +110,7 @@ cd benchmark-ui
 npm install && npm run dev
 ```
 
-Reads static JSON from `public/` — drop in new `preview_latest.json` / `report_latest.json` to update.
+Reads static JSON from `public/`. Drop in new `preview_latest.json` / `report_latest.json` to update.
 
 ## Configuration
 
