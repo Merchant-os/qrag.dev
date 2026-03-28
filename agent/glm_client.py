@@ -191,8 +191,7 @@ def generate_with_glm(messages: list, system_prompt: str = "") -> str:
         return content
 
     except Exception as e:
-        print(f"GLM API error: {e}")
-        return f"```qsharp\n// Error: {e}\n```"
+        raise RuntimeError(f"GLM API error: {e}") from e
 
 def generate_embedding_with_glm(text: str, dim: int = 512) -> list[float]:
     """

@@ -104,7 +104,16 @@ def main():
     with open("rag/metadata.json", "w") as f:
         json.dump(metadata, f, indent=2)
 
-    print("Done! Saved to rag/vectors.npy and rag/metadata.json")
+    # Save portable combined format (vectors.json) for git distribution
+    combined = []
+    for meta, vec in zip(metadata, embeddings):
+        entry = dict(meta)
+        entry["vector"] = vec if isinstance(vec, list) else vec.tolist()
+        combined.append(entry)
+    with open("rag/vectors.json", "w") as f:
+        json.dump(combined, f, indent=2)
+
+    print("Done! Saved to rag/vectors.npy, rag/metadata.json, and rag/vectors.json")
     if vectors.size:
         print(f"Vector dimensions: {vectors.shape[1]}")
     print("\nReady to use with OpenAI generation!")

@@ -45,8 +45,7 @@ Query: "Implement Grover's search for 4 items"
 ├── rag/
 │   ├── embed.py          # Generates 1536-dim OpenAI embeddings
 │   ├── retrieve.py       # Cosine similarity retrieval
-│   ├── vectors.npy       # Stored embeddings
-│   └── metadata.json     # Chunk metadata
+│   └── vectors.json      # Pre-computed embeddings (auto-bootstraps on first run)
 │
 ├── benchmark/
 │   ├── tasks.json        # Benchmark task definitions
@@ -61,21 +60,28 @@ Query: "Implement Grover's search for 4 items"
 
 ## Quick Start
 
-**Prerequisites:** Python 3.8+, OpenAI API key, .NET 6 SDK (for Q# build/test)
+**Prerequisites:** Python 3.10+, OpenAI API key, .NET 6 SDK (for Q# build/test)
 
 ```bash
 # Install
 pip install -r requirements.txt
 export OPENAI_API_KEY="your-key"
 
-# 1. Scrape QDK examples (first time only)
-python corpus/scrape_qdk.py
-
-# 2. Generate embeddings
-python rag/embed.py
-
-# 3. Generate Q# code with RAG
+# Generate Q# code with RAG (pre-computed embeddings bootstrap automatically)
 python -c "from agent.agent import generate; print(generate('Create a Bell state'))"
+
+# Run end-to-end tests
+python test_end_to_end.py
+```
+
+### Re-scraping and re-embedding (optional)
+
+Pre-computed embeddings for 40 QDK examples are included in `rag/vectors.json`.
+To refresh from the latest QDK repo:
+
+```bash
+python corpus/scrape_qdk.py    # Re-scrape QDK examples
+python rag/embed.py             # Re-generate embeddings (requires OPENAI_API_KEY)
 ```
 
 ## Benchmarking

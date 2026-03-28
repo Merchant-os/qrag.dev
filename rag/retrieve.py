@@ -27,9 +27,44 @@ def create_openai_client():
         raise RuntimeError("openai package not installed. Run: pip install openai>=1.0.0")
     return OpenAI()
 
-VECTORS = np.load("rag/vectors.npy")
-with open("rag/metadata.json") as f:
-    METADATA = json.load(f)
+_RAG_DIR = os.path.dirname(__file__)
+_NPY_PATH = os.path.join(_RAG_DIR, "vectors.npy")
+_META_PATH = os.path.join(_RAG_DIR, "metadata.json")
+_JSON_PATH = os.path.join(_RAG_DIR, "vectors.json")
+
+
+def _bootstrap_from_vectors_json():
+    """Generate vectors.npy and metadata.json from the portable vectors.json."""
+    with open(_JSON_PATH) as f:
+        data = json.load(f)
+    vectors = []
+    metadata = []
+    for entry in data:
+        vectors.append(entry["vector"])
+        meta = {k: v for k, v in entry.items() if k != "vector"}
+        meta.setdefault("type", "example")
+        metadata.append(meta)
+    vectors_np = np.array(vectors, dtype=np.float32)
+    np.save(_NPY_PATH, vectors_np)
+    with open(_META_PATH, "w") as f:
+        json.dump(metadata, f, indent=2)
+    return vectors_np, metadata
+
+
+def _load_vectors():
+    if os.path.exists(_NPY_PATH) and os.path.exists(_META_PATH):
+        vectors = np.load(_NPY_PATH)
+        with open(_META_PATH) as f:
+            metadata = json.load(f)
+        return vectors, metadata
+    if os.path.exists(_JSON_PATH):
+        return _bootstrap_from_vectors_json()
+    raise FileNotFoundError(
+        "No vector data found. Run 'python rag/embed.py' to generate embeddings."
+    )
+
+
+VECTORS, METADATA = _load_vectors()
 
 def embed_query(query: str) -> list[float]:
     """Generate embedding for a query using OpenAI."""
